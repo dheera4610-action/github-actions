@@ -1,0 +1,14 @@
+name: checkout code
+on: [push] #triggers
+jobs: 
+  build: # these should be uniquenames
+  # job1 and job4 parellel no dependency
+    runs-on: ubuntu-latest # linux os. we can have windows or mac os
+    steps: #steps in the pipeline
+      - name: checkout
+        uses: actions/checkout@v7
+
+      - name: display code
+        run: ls -al
+    
+  
