@@ -1,0 +1,26 @@
+name: dependency
+on: [push] #triggers
+jobs: 
+  job-1: # these should be uniquenames
+  # job1 and job4 parellel no dependency
+    runs-on: ubuntu-latest # linux os. we can have windows or mac os
+    steps: #steps in the pipeline
+      - name: step1 
+        run: echo "hello world job-1"
+  job-2: # these should be uniquenames
+    needs: job-1 # this job will run after job-1 is completed
+    runs-on: ubuntu-latest # linux os. we can have windows or mac os
+    steps: #steps in the pipeline
+      - name: step1 
+        run: echo "hello world job-2"  
+  job-3: # these should be uniquenames
+    needs: job-2 # this job will run after job-2 is completed
+    runs-on: ubuntu-latest # linux os. we can have windows or mac os
+    steps: #steps in the pipeline
+      - name: step1 
+        run: echo "hello world job-3"    
+  job-4: # these should be uniquenames
+    runs-on: ubuntu-latest # linux os. we can have windows or mac os
+    steps: #steps in the pipeline
+      - name: step1 
+        run: echo "hello world job-3"          
